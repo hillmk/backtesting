@@ -24,14 +24,20 @@ class TestStrategy(backtrader.Strategy):
             self.bar_executed = len(self)
         self.order = None
 
+    def notify_trade(self, trade):
+        if not trade.isclosed:
+            return
+
+        self.log('OPERATION PROFIT, GROSS %.2f, NET %.2f' %
+                 (trade.pnl, trade.pnlcomm))
 
     def next(self):
         # Simply log the closing price of the series from the reference
         self.log('Close, %.2f' % self.dataclose[0])
 
-        print(len(self))
-        print(self.order)
-        print(self.position)
+        # print(len(self))
+        # print(self.order)
+        # print(self.position)
         
         # buy the DIP
         if self.order:
