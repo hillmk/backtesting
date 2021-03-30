@@ -7,16 +7,16 @@ from strategies import TestStrategy
 
 cerebro = backtrader.Cerebro()
 cerebro.broker.set_cash(1000000)
-data = backtrader.feeds.YahooFinanceCSVData(
-    dataname='orcl.csv',
-    fromdate=datetime.datetime(2000,1,1),
-    todate=datetime.datetime(2002,12,31),
-    reverse=False
-)
+# data = backtrader.feeds.YahooFinanceCSVData(
+#     dataname='orcl.csv',
+#     fromdate=datetime.datetime(2000,1,1),
+#     todate=datetime.datetime(2002,12,31),
+#     reverse=False
+# )
 
 data1 = backtrader.feeds.YahooFinanceData(
-    dataname='BHP.AX',
-    fromdate=datetime.datetime(2021,1,1),
+    dataname='AMP.AX',
+    fromdate=datetime.datetime(2020,1,1),
     todate=datetime.datetime(2021,12,31),
     reverse=False
 )
@@ -28,5 +28,7 @@ cerebro.addsizer(backtrader.sizers.FixedSize, stake=1000)
 cerebro.run()
 
 print ('Final portfolio value:  %.2f' % cerebro.broker.getvalue())
+
+
 
 cerebro.plot()

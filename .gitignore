@@ -114,6 +114,8 @@ env.bak/
 venv.bak/
 myenv/
 
+__pycache__/
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -137,3 +139,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+__pycache__/strategies.cpython-39.pyc
+__pycache__/strategies.cpython-39.pyc
+__pycache__/strategies.cpython-39.pyc
