@@ -54,9 +54,10 @@ class TestStrategy(backtrader.Strategy):
         if not self.position:     
             if ((self.dataclose[0] < self.dataclose[-1]) and (self.dataclose[-1] < self.dataclose[-2])):
                     self.log('Buying, %.2f' % self.dataclose[0])
-                    # self.order = self.buy()
-                    self.order = self.buy(exectype=backtrader.Order.StopTrail, trailpercent=0.02)
+                    self.order = self.buy()
+                    # self.order = self.buy(exectype=backtrader.Order.StopTrail, trailpercent=0.02)
+                    # self.order = self.buy(exectype=backtrader.Order.StopTrail, trailamount=10)
         else:
-            if len(self) >= (self.bar_executed + 5):
-                    self.log('Selling, %.2f' % self.dataclose[0])
-                    self.order = self.sell()
+            pass
+            # if len(self) >= (self.bar_executed + 5):
+            #         self.order = self.sell()

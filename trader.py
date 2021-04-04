@@ -6,7 +6,7 @@ from strategies import TestStrategy
 #import matplotlib
 
 cerebro = backtrader.Cerebro()
-cerebro.broker.set_cash(1000000)
+cerebro.broker.set_cash(2000)
 # data = backtrader.feeds.YahooFinanceCSVData(
 #     dataname='orcl.csv',
 #     fromdate=datetime.datetime(2000,1,1),
@@ -15,15 +15,15 @@ cerebro.broker.set_cash(1000000)
 # )
 
 data1 = backtrader.feeds.YahooFinanceData(
-    dataname='AMP.AX',
-    fromdate=datetime.datetime(2020,1,1),
+    dataname='ANZ.AX',
+    fromdate=datetime.datetime(2021,1,1),
     todate=datetime.datetime(2021,12,31),
     reverse=False
 )
 
 cerebro.adddata(data1)
 cerebro.addstrategy(TestStrategy)
-cerebro.addsizer(backtrader.sizers.FixedSize, stake=1000)
+cerebro.addsizer(backtrader.sizers.FixedSize, stake=100)
 
 cerebro.run()
 
